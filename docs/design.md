@@ -1,6 +1,6 @@
 # Design reference
 
-How every part of the gateway behaves, and why. The [README](../README.md) is the overview; this is the detail behind it.
+How every part of Route AI behaves, and why. The [README](../README.md) is the overview; this is the detail behind it.
 
 ## Running it locally
 

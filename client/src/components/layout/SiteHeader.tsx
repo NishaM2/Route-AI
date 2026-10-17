@@ -1,39 +1,49 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { GITHUB_URL } from "../../site.ts"
+import { GitHubIcon } from "./GitHubIcon.tsx"
+import { Logo } from "./Logo.tsx"
 import { ThemeToggle } from "./ThemeToggle.tsx"
 
 type Props = { page: "landing" | "dashboard" }
 
 export function SiteHeader({ page }: Props) {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 8)
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    return () => window.removeEventListener("scroll", update)
+  }, [])
+
   return (
-    <nav className="site-nav">
+    <nav className={scrolled ? "site-nav scrolled" : "site-nav"} aria-label="Main">
       <div className="wrap nav-inner">
-        <Link className="brand" to="/">
-          <img src="/favicon.svg" alt="" />
-          LLM Gateway
-        </Link>
+        <Logo />
         <div className="nav-links">
-          {page === "landing" && (
+          {page === "landing" ? (
             <>
-              <a className="optional" href="#how">How it works</a>
-              <a className="optional" href="#results">Results</a>
-              <a className="optional" href="#features">Features</a>
+              <a className="nav-link optional" href="#features">Features</a>
+              <a className="nav-link optional" href="#pipeline">Pipeline</a>
+              <a className="nav-link optional" href="#guards">Guards</a>
+              <a className="nav-link optional" href="#sdk">SDK</a>
             </>
-          )}
-          {page === "dashboard" && (
-            <Link className="optional" to="/">
-              ← Back to home
+          ) : (
+            <Link className="nav-link optional" to="/">
+              Overview
             </Link>
           )}
-          <a className="optional" href={GITHUB_URL}>
-            GitHub
+          <span className="nav-divider optional" aria-hidden="true" />
+          <a className="icon-button" href={GITHUB_URL} aria-label="Route AI on GitHub" title="GitHub">
+            <GitHubIcon />
           </a>
+          <ThemeToggle />
           {page === "landing" && (
             <Link className="button button-primary button-small" to="/dashboard">
-              Explore Dashboard
+              Dashboard
             </Link>
           )}
-          <ThemeToggle />
         </div>
       </div>
     </nav>

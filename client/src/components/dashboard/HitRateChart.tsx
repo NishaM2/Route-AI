@@ -27,7 +27,7 @@ export function HitRateChart({ daily, days }: { daily: HitRateDay[]; days: numbe
           labelFormatter={(day, payload) => `${formatDay(String(day))} (${payload?.[0]?.payload?.lookups ?? 0} lookups)`}
           formatter={(value, name) => [value === null ? "no lookups" : formatPercent(Number(value)), name]}
         />
-        <Legend wrapperStyle={{ color: colors.axis, fontSize: 13 }} />
+        <Legend wrapperStyle={{ fontSize: 13 }} formatter={(value) => <span style={{ color: colors.axis }}>{value}</span>} />
         <Line isAnimationActive={false} type="linear" dataKey="exact" name="Exact hits" stroke={colors.series1} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: colors.surface }} connectNulls={false} />
         <Line isAnimationActive={false} type="linear" dataKey="semantic" name="Semantic hits" stroke={colors.series2} strokeWidth={2} dot={{ r: 4, strokeWidth: 2, stroke: colors.surface }} connectNulls={false} />
       </LineChart>

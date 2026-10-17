@@ -24,7 +24,7 @@ export function DashboardPage() {
   const hitRate = useStats<HitRateResponse>(`/stats/hit-rate?days=${CHART_DAYS}`, refreshKey).state
 
   useEffect(() => {
-    document.title = "Dashboard · LLM Gateway"
+    document.title = "Dashboard · Route AI"
   }, [])
 
   const summary = state.data

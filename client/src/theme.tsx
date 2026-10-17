@@ -14,22 +14,22 @@ export type ChartColors = {
 
 const chartColors: Record<Theme, ChartColors> = {
   light: {
-    series1: "#2a78d6",
+    series1: "#4a3aa7",
     series2: "#eb6834",
-    series1Light: "#86b6ef",
-    grid: "#e4e3df",
-    axis: "#52514e",
-    text: "#0b0b0b",
-    surface: "#fcfcfb",
+    series1Light: "#b9b1e8",
+    grid: "#e8e7e2",
+    axis: "#4f4e4a",
+    text: "#111110",
+    surface: "#ffffff",
   },
   dark: {
-    series1: "#3987e5",
+    series1: "#9085e9",
     series2: "#d95926",
-    series1Light: "#1c5cab",
-    grid: "#2f2f2d",
-    axis: "#c3c2b7",
-    text: "#ffffff",
-    surface: "#1a1a19",
+    series1Light: "#3f3780",
+    grid: "#232523",
+    axis: "#b4b8b2",
+    text: "#eceeea",
+    surface: "#121312",
   },
 }
 

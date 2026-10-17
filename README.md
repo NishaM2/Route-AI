@@ -1,6 +1,6 @@
-# LLM Gateway
+# Route AI
 
-An OpenAI-compatible gateway that sits between an application and its LLM providers. Apps change one line, their `baseURL`, and in return get answers to repeated **and reworded** questions served from cache, automatic fallback when a provider fails, per-tenant budgets, and the cost of every token recorded.
+Route AI is an OpenAI-compatible gateway that sits between an application and its LLM providers. Apps change one line, their `baseURL`, and in return get answers to repeated **and reworded** questions served from cache, automatic fallback when a provider fails, per-tenant budgets, and the cost of every token recorded.
 
 ## Headline result
 
@@ -83,7 +83,7 @@ You need Node 22 or newer, Docker Desktop, and free API keys from [Groq](https:/
 
 ```
 git clone https://github.com/NishaM2/Route-AI.git
-cd LLM-Gateway
+cd Route-AI
 npm install
 cp .env.example .env               # then fill in GROQ_API_KEY and GEMINI_API_KEY
 docker compose up -d --wait        # Postgres with pgvector on 5433, Redis on 6379

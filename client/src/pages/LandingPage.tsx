@@ -1,16 +1,22 @@
 import { useEffect } from "react"
-import { Closing } from "../components/landing/Closing.tsx"
-import { Features } from "../components/landing/Features.tsx"
+import { ClosingCta } from "../components/landing/ClosingCta.tsx"
+import { DashboardTeaser } from "../components/landing/DashboardTeaser.tsx"
+import { FeatureBento } from "../components/landing/FeatureBento.tsx"
+import { FreeTier } from "../components/landing/FreeTier.tsx"
+import { GuardProof } from "../components/landing/GuardProof.tsx"
 import { Hero } from "../components/landing/Hero.tsx"
-import { RequestFlow } from "../components/landing/RequestFlow.tsx"
-import { Results } from "../components/landing/Results.tsx"
-import { StatsStrip } from "../components/landing/StatsStrip.tsx"
+import { NumberStrip } from "../components/landing/NumberStrip.tsx"
+import { Pipeline } from "../components/landing/Pipeline.tsx"
+import { SdkSnippet } from "../components/landing/SdkSnippet.tsx"
+import { useReveal } from "../components/landing/useReveal.ts"
 import { SiteFooter } from "../components/layout/SiteFooter.tsx"
 import { SiteHeader } from "../components/layout/SiteHeader.tsx"
 
 export function LandingPage() {
+  useReveal()
+
   useEffect(() => {
-    document.title = "LLM Gateway"
+    document.title = "Route AI · One endpoint for every model"
   }, [])
 
   return (
@@ -18,11 +24,14 @@ export function LandingPage() {
       <SiteHeader page="landing" />
       <main className="wrap">
         <Hero />
-        <StatsStrip />
-        <RequestFlow />
-        <Results />
-        <Features />
-        <Closing />
+        <NumberStrip />
+        <FeatureBento />
+        <Pipeline />
+        <GuardProof />
+        <SdkSnippet />
+        <DashboardTeaser />
+        <FreeTier />
+        <ClosingCta />
       </main>
       <SiteFooter />
     </div>

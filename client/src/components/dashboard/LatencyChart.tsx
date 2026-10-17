@@ -35,7 +35,7 @@ export function LatencyChart({ groups }: { groups: LatencyGroup[] }) {
           formatter={(value, name) => [formatMs(Number(value)), name]}
           labelFormatter={(label, payload) => `${label} (${payload?.[0]?.payload?.requests ?? 0} requests)`}
         />
-        <Legend wrapperStyle={{ color: colors.axis, fontSize: 13 }} />
+        <Legend wrapperStyle={{ fontSize: 13 }} formatter={(value) => <span style={{ color: colors.axis }}>{value}</span>} />
         <Bar isAnimationActive={false} dataKey="median" name="Median" fill={colors.series1} radius={[4, 4, 0, 0]} maxBarSize={56}>
           <LabelList dataKey="median" position="top" formatter={(value) => formatMs(Number(value))} fill={colors.text} fontSize={12} />
         </Bar>

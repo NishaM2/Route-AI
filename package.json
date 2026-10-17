@@ -1,8 +1,8 @@
 {
-  "name": "llm-gateway",
+  "name": "route-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "OpenAI-compatible LLM gateway with caching, routing and cost tracking",
+  "description": "Route AI: an OpenAI-compatible LLM gateway with semantic caching, routing and cost tracking",
   "type": "module",
   "engines": {
     "node": ">=22"

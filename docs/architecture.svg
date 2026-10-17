@@ -7,7 +7,7 @@
 
   <rect width="960" height="560" rx="16" fill="#fcfcfb"/>
 
-  <text x="24" y="36" font-size="18" font-weight="600">LLM Gateway: the path of one request</text>
+  <text x="24" y="36" font-size="18" font-weight="600">Route AI: the path of one request</text>
   <text x="24" y="58" fill="#52514e">Each stage either answers or hands on to the next, so the paid provider call comes last.</text>
 
   <rect x="14" y="110" width="152" height="74" rx="10" fill="#ffffff" stroke="#c9c7bf"/>

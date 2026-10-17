@@ -1,35 +1,35 @@
 import { Link } from "react-router"
-import { GITHUB_URL } from "../../site.ts"
-import { CodeSample } from "./CodeSample.tsx"
+import { CopyPill } from "./CopyPill.tsx"
+import { TerminalDemo } from "./TerminalDemo.tsx"
 
 export function Hero() {
+  const baseUrl = `${window.location.origin}/v1`
+
   return (
     <header className="hero">
-      <div>
-        <span className="eyebrow">
-          <span className="dot" />
-          OpenAI-compatible, self-hosted
-        </span>
-        <h1>
-          One endpoint for every model. <span className="soft">Faster, cheaper, harder to break.</span>
-        </h1>
-        <p className="lead">
-          A gateway that sits between your app and its LLM providers. It answers repeated and reworded questions from cache, falls back when a
-          provider fails, enforces per-tenant budgets and records the cost of every token.
+      <div className="hero-copy">
+        <p className="hero-badge">
+          <span className="pulse-dot" aria-hidden="true" />
+          OpenAI-compatible · self-hosted · $0 to run
         </p>
-        <div className="cta">
-          <Link className="button button-primary" to="/dashboard">
-            Explore Dashboard
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <h1>
+          Every model, behind <br className="hero-break" />
+          one <span className="serif-accent">quiet</span> endpoint.
+        </h1>
+        <p className="hero-lead">
+          Semantic caching, provider fallback and per-token costs, behind the OpenAI client you already use.
+        </p>
+        <div className="hero-actions">
+          <CopyPill prefix="baseURL" text={baseUrl} label="Copy the base URL" />
+          <Link className="button button-secondary" to="/dashboard">
+            Open the live dashboard
+            <svg className="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </Link>
-          <a className="button button-secondary" href={GITHUB_URL}>
-            View the code
-          </a>
         </div>
       </div>
-      <CodeSample />
+      <TerminalDemo />
     </header>
   )
 }
