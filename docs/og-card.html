@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=block">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background:
+      radial-gradient(80% 90% at 100% 0%, rgba(105, 65, 198, 0.10), transparent 60%),
+      #fbfbf9;
+    color: #111110;
+    font-family: "Geist", system-ui, sans-serif;
+    position: relative;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(#e8e7e2 1px, transparent 1px), linear-gradient(90deg, #e8e7e2 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(70% 80% at 85% 20%, rgba(0,0,0,0.55), transparent 75%);
+  }
+  .wrap { position: relative; height: 100%; padding: 64px 72px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 44px; }
+  .brand svg { width: 44px; height: 44px; }
+  .brand span { font-family: "Newsreader", serif; font-size: 34px; letter-spacing: -0.01em; }
+  .brand em { color: #6941c6; }
+  h1 { font-family: "Newsreader", serif; font-weight: 400; font-size: 72px; line-height: 1.0; letter-spacing: -0.035em; }
+  h1 em { color: #6941c6; }
+  .lead { margin-top: 26px; font-size: 22px; line-height: 1.45; color: #4f4e4a; max-width: 30em; }
+  .url { margin-top: 34px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border: 1px solid #e8e7e2; border-radius: 999px; background: #fff; font-family: "Geist Mono", monospace; font-size: 18px; color: #111110; }
+  .url b { color: #6941c6; font-weight: 500; }
+  .terminal { background: #0f1110; border: 1px solid #1d201e; border-radius: 22px; box-shadow: 0 24px 60px rgba(17,17,16,0.18); overflow: hidden; font-family: "Geist Mono", monospace; font-size: 16.5px; color: #e4e7e3; }
+  .bar { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-bottom: 1px solid #1d201e; color: #7b827e; font-size: 13px; }
+  .bar i { width: 10px; height: 10px; border-radius: 50%; background: #2a2e2b; display: inline-block; }
+  .bar span { margin-left: 8px; }
+  .body { padding: 20px 22px 24px; line-height: 1.9; }
+  .dim { color: #7b827e; }
+  .hit { color: #b39dfa; }
+  .stop { color: #f08a7a; }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding-left: 14px; }
+  .stats { display: flex; gap: 10px; margin-top: 18px; }
+  .stat { flex: 1; padding: 14px 16px; border: 1px solid #e8e7e2; border-radius: 16px; background: #fff; }
+  .stat b { display: block; font-family: "Newsreader", serif; font-weight: 400; font-size: 34px; letter-spacing: -0.03em; line-height: 1; }
+  .stat span { display: block; margin-top: 6px; font-size: 14px; color: #4f4e4a; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#111110"/><path d="M8 16h5c3 0 3.5-6 7-6h3M13 16c3 0 3.5 6 7 6h3" fill="none" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round"/><circle cx="8" cy="16" r="2.4" fill="#fbfbf9"/></svg>
+        <span>Route <em>AI</em></span>
+      </div>
+      <h1>Every model, behind one <em>quiet</em> endpoint.</h1>
+      <p class="lead">Semantic caching, provider fallback and per-token costs, behind the OpenAI client you already use.</p>
+      <div class="url"><b>→</b> routee-ai.vercel.app</div>
+    </div>
+    <div>
+      <div class="terminal">
+        <div class="bar"><i></i><i></i><i></i><span>route-ai · request log</span></div>
+        <div class="body">
+          <div><span class="dim">$</span> ask "How do I reset my password?"</div>
+          <div class="row"><span>→ routed to groq</span><span class="dim">718 ms</span></div>
+          <div><span class="dim">$</span> ask "How can I reset my password?"</div>
+          <div class="row hit"><span>✓ semantic hit · 0.987</span><span class="dim">141 ms</span></div>
+          <div><span class="dim">$</span> ask "Why is my code not working?"</div>
+          <div class="row stop"><span>✕ refused · negated</span><span class="dim">→ provider</span></div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>13×</b><span>faster cache hits</span></div>
+        <div class="stat"><b>−50%</b><span>spend</span></div>
+        <div class="stat"><b>30→3</b><span>wrong matches</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
